@@ -11,7 +11,7 @@ const app = express()
 app.use(bodyParser.json()) // Parseador de bodies
 
 // Acá conectaremos la base de datos:
-mongoose.connect(process.env.MONGO_URL, { dbName: process.env.MONGO_DB_NAME })
+mongoose.connect(process.env.MONGO_URL.toString(), { dbName: process.env.MONGO_DB_NAME.toString() })
 const db = mongoose.connection;
 
 app.use('/books', bookRoutes)
